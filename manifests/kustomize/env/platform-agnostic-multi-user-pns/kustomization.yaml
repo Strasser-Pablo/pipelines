@@ -3,7 +3,7 @@ kind: Kustomization
 bases:
 - ../platform-agnostic-multi-user
 
-ressources:
+resources:
 - argo-mysql-config.yaml
 
 patchesStrategicMerge:
