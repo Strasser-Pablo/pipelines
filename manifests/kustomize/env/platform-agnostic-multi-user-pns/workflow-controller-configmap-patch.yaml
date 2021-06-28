@@ -18,3 +18,19 @@ data:
       maxOpenConns: 0
       connMaxLifetime: 0s # 0 means connections don't have a max lifetime
     nodeStatusOffLoad: true
+    postgresql:
+      host: localhost
+      port: 5432
+      database: postgres
+      tableName: argo_workflows
+      # the database secrets must be in the same namespace of the controller
+      userNameSecret:
+        name: argo-postgres-config
+        key: username
+      passwordSecret:
+        name: argo-postgres-config
+        key: password
+      ssl: true
+      # sslMode must be one of: disable, require, verify-ca, verify-full
+      # you can find more information about those ssl options here: https://godoc.org/github.com/lib/pq
+      sslMode: require
