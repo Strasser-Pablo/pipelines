@@ -12,3 +12,9 @@ data:
   # However, it is flaky for containers that run really fast, see https://github.com/kubeflow/pipelines/issues/5285.
   # So we still default to docker for now.
   containerRuntimeExecutor: pns
+  persistence: |
+    connectionPool:
+      maxIdleConns: 100
+      maxOpenConns: 0
+      connMaxLifetime: 0s # 0 means connections don't have a max lifetime
+    nodeStatusOffLoad: true
