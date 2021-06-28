@@ -4,4 +4,4 @@ bases:
 - ../platform-agnostic-multi-user
 
 patchesStrategicMerge:
-- workflow-controller-configmap-patch1.yaml
+- workflow-controller-configmap-patch.yaml
