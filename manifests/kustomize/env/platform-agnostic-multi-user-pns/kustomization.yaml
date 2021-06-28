@@ -3,5 +3,8 @@ kind: Kustomization
 bases:
 - ../platform-agnostic-multi-user
 
+ressources:
+- argo-mysql-config.yaml
+
 patchesStrategicMerge:
 - workflow-controller-configmap-patch.yaml
