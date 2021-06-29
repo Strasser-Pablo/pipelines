@@ -24,5 +24,8 @@ data:
      database: argo
      tableName: argo_workflows
      userNameSecret:
-       name: argo-mysql-config
-       key: username
+        name: argo-mysql-config
+        key: username
+     passwordSecret:
+        name: argo-mysql-config
+        key: password

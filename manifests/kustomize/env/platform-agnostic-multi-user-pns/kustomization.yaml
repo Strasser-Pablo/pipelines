@@ -4,7 +4,10 @@ bases:
 - ../platform-agnostic-multi-user
 
 resources:
-- argo-mysql-config.yaml
+- mysql.yaml
+- pvc.yaml
+- secret.yaml
+- service.yaml
 
 patchesStrategicMerge:
 - workflow-controller-configmap-patch.yaml

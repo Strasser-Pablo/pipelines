@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pablo-mysql
+  namespace: pablo
+  labels:
+    app: pablo-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pablo-mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pablo-mysql
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+        - name: pablo-mysql
+          image: mysql:8
+          args:
+            - --datadir
+            - /var/lib/mysql/datadir
+          env:
+            - name: MYSQL_USER
+              value: mysql
+            - name: MYSQL_PASSWORD
+              value: password
+            - name: MYSQL_DATABASE
+              value: argo
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: "yes"
+          image: mysql:8
+          ports:
+            - name: dbapi
+              containerPort: 3306
+          readinessProbe:
+            exec:
+              command:
+              - mysql
+              - -u
+              - mysql
+              - -ppassword
+              - argo
+              - -e
+              - SELECT 1
+          initialDelaySeconds: 15
+          timeoutSeconds: 2
+          volumeMounts:
+            - name: pablo-mysql
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: pablo-mysql
+          persistentVolumeClaim:
+            claimName: pablo-mysql
