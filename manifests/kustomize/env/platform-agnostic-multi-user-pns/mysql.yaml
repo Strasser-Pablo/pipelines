@@ -21,7 +21,6 @@ spec:
     spec:
       containers:
         - name: pablo-mysql
-          image: mysql:8
           args:
             - --datadir
             - /var/lib/mysql/datadir
