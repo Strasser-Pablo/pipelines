@@ -47,8 +47,6 @@ spec:
               - argo
               - -e
               - SELECT 1
-          initialDelaySeconds: 15
-          timeoutSeconds: 2
           volumeMounts:
             - name: pablo-mysql
               mountPath: /var/lib/mysql
