@@ -26,6 +26,3 @@ data:
      userNameSecret:
        name: argo-mysql-config
        key: username
-     passwordSecret:
-       name: argo-mysql-config
-       key: password
