@@ -1,8 +1,9 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
+type: Opaque
 metadata:
   name: argo-mysql-config
   namespace: kubeflow
 data:
-    username: root
-    password: ""
+    username: cm9vdAo=
+    password: dGVzdA==
