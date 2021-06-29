@@ -19,7 +19,7 @@ data:
       connMaxLifetime: 0s # 0 means connections don't have a max lifetime
     nodeStatusOffLoad: true
     mysql:
-     host: mysql
+     host: pablo-mysql
      port: 3306
      database: argo
      tableName: argo_workflows
