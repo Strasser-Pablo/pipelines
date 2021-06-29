@@ -18,6 +18,7 @@ data:
       maxOpenConns: 0
       connMaxLifetime: 0s # 0 means connections don't have a max lifetime
     nodeStatusOffLoad: true
+    clusterName: default
     mysql:
      host: pablo-mysql
      port: 3306
